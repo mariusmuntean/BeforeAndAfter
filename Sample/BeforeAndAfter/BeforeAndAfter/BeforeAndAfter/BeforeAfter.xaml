@@ -7,22 +7,42 @@
              mc:Ignorable="d"
              x:Class="BeforeAndAfter.BeforeAfter">
     <ContentView.Resources>
-        <x:Double x:Key="Offset">50.0</x:Double>
-        <x:Double x:Key="NegativeOffset">-50.0</x:Double>
+        <x:Double x:Key="Offset">100.0</x:Double>
+        <x:Double x:Key="NegativeOffset">-100.0</x:Double>
     </ContentView.Resources>
 
     <Grid x:Name="LayoutRoot">
 
         <!-- beforeView is added here in the code behind -->
-        <d:BoxView BackgroundColor="Gold"/>
+        <d:BoxView BackgroundColor="Gold" />
 
         <Grid x:Name="AfterViewParentLayout"
               IsClippedToBounds="True"
-              TranslationX="{StaticResource Offset}">
+              TranslationX="{DynamicResource Offset}">
 
             <!-- afterView is added here in the code behind -->
             <d:BoxView BackgroundColor="YellowGreen"
-                       TranslationX="{StaticResource NegativeOffset}" />
+                       TranslationX="{DynamicResource NegativeOffset}" />
+        </Grid>
+
+        <!-- thumb control -->
+        <Grid HorizontalOptions="Start"
+              BackgroundColor="#44FFFFFF"
+              Margin="-25,0,0,0"
+              TranslationX="{DynamicResource Offset}">
+            <Grid.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
+            </Grid.GestureRecognizers>
+            <BoxView VerticalOptions="Fill"
+                     HorizontalOptions="Center"
+                     WidthRequest="5"
+                     Color="LightGray" />
+            <BoxView WidthRequest="50"
+                     HeightRequest="50"
+                     CornerRadius="25"
+                     BackgroundColor="Fuchsia"
+                     VerticalOptions="Center"
+                     HorizontalOptions="Center" />
         </Grid>
     </Grid>
 </ContentView>

@@ -11,7 +11,20 @@
     <ContentPage.Resources>
         <x:Double x:Key="Offset">50.0</x:Double>
         <x:Double x:Key="NegativeOffset">-50.0</x:Double>
+
+        <OnPlatform x:Key="before" x:TypeArguments="ImageSource">
+            <On Platform="iOS" Value="xamarin_before.jpg"></On>
+            <On Platform="Android" Value="xamarin_before"></On>
+        </OnPlatform>
+        
+        <OnPlatform x:Key="after" x:TypeArguments="ImageSource">
+            <On Platform="iOS" Value="xamarin_after.jpg"></On>
+            <On Platform="Android" Value="xamarin_after"></On>
+        </OnPlatform>
+
     </ContentPage.Resources>
+
+
 
     <Grid>
 
@@ -19,14 +32,14 @@
             <beforeAndAfter:BeforeAfter.BeforeView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
-                       Source="xamarin_before"
+                       Source="{StaticResource before}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
             </beforeAndAfter:BeforeAfter.BeforeView>
             <beforeAndAfter:BeforeAfter.AfterView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
-                       Source="xamarin_after"
+                       Source="{StaticResource after}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
             </beforeAndAfter:BeforeAfter.AfterView>
