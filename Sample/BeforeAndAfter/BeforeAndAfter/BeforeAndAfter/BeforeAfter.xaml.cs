@@ -13,6 +13,16 @@ namespace BeforeAndAfter
         public BeforeAfter()
         {
             InitializeComponent();
+
+            // Apparently there's a bug in the PanGestureRecognizer such that on Android the PAnUpdatedEventArgs.TotalX actually contains the X-delta since the last handler invocation
+            if (Device.RuntimePlatform == Device.iOS)
+            {
+                _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX - previousPanX;
+            }
+            else if (Device.RuntimePlatform == Device.Android)
+            {
+                _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX;
+            }
         }
 
         public static readonly BindableProperty BeforeViewProperty = BindableProperty.Create(
@@ -79,8 +89,8 @@ namespace BeforeAndAfter
             set => SetValue(AfterViewProperty, value);
         }
 
-
-        double previousTranslateX = 0.0d;
+        private double previousTranslateX = 0.0d;
+        private readonly Func<PanUpdatedEventArgs, double, double> _getOffset;
 
         private void PanGestureRecognizer_OnPanUpdated(object sender, PanUpdatedEventArgs e)
         {
@@ -91,7 +101,9 @@ namespace BeforeAndAfter
                     break;
 
                 case GestureStatus.Running:
-                    AddOffsetDelta(e.TotalX - previousTranslateX);
+                    var offset = _getOffset(e, previousTranslateX);
+                    AddOffsetDelta(offset);
+
                     previousTranslateX = e.TotalX;
                     break;
 
@@ -108,8 +120,20 @@ namespace BeforeAndAfter
 
         private void AddOffsetDelta(double offsetDelta)
         {
-            this.Resources[Offset] = ((double) this.Resources[Offset]) + offsetDelta;
-            this.Resources[NegativeOffset] = -((double) this.Resources[Offset]);
+            if (Math.Abs(offsetDelta) < 0.01)
+            {
+                return;
+            }
+
+
+            var delta = ((double) Resources[Offset]) + offsetDelta;
+            Resources[NegativeOffset] = -delta;
+            Resources[Offset] = delta;
+
+
+            //var translationX = AfterViewParentLayout.TranslationX + offsetDelta;
+            //AfterViewParentLayout.TranslateTo(translationX, 0, 1);
+            //AfterView.TranslateTo(-translationX, 0, 1);
         }
     }
 }

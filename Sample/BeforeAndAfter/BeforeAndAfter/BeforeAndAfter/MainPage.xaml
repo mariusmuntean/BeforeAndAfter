@@ -28,7 +28,7 @@
 
     <Grid>
 
-        <beforeAndAfter:BeforeAfter>
+        <beforeAndAfter:BeforeAfter >
             <beforeAndAfter:BeforeAfter.BeforeView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
