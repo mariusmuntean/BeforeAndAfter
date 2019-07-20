@@ -4,45 +4,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:beforeAndAfter="clr-namespace:BeforeAndAfter;assembly=BeforeAndAfter"
+             xmlns:beforeAndAfterLib="clr-namespace:BeforeAndAfterLib;assembly=BeforeAndAfterLib"
              mc:Ignorable="d"
              x:Class="BeforeAndAfter.MainPage">
 
     <ContentPage.Resources>
-        <x:Double x:Key="Offset">50.0</x:Double>
-        <x:Double x:Key="NegativeOffset">-50.0</x:Double>
 
-        <OnPlatform x:Key="before" x:TypeArguments="ImageSource">
-            <On Platform="iOS" Value="xamarin_before.jpg"></On>
-            <On Platform="Android" Value="xamarin_before"></On>
+        <OnPlatform x:Key="Before" x:TypeArguments="ImageSource">
+            <On Platform="iOS" Value="xamarin_before.jpg" />
+            <On Platform="Android" Value="xamarin_before" />
         </OnPlatform>
-        
-        <OnPlatform x:Key="after" x:TypeArguments="ImageSource">
-            <On Platform="iOS" Value="xamarin_after.jpg"></On>
-            <On Platform="Android" Value="xamarin_after"></On>
+
+        <OnPlatform x:Key="After" x:TypeArguments="ImageSource">
+            <On Platform="iOS" Value="xamarin_after.jpg" />
+            <On Platform="Android" Value="xamarin_after" />
         </OnPlatform>
 
     </ContentPage.Resources>
 
-
-
     <Grid>
-
-        <beforeAndAfter:BeforeAfter >
-            <beforeAndAfter:BeforeAfter.BeforeView>
+        <beforeAndAfterLib:BeforeAfter>
+            <beforeAndAfterLib:BeforeAfter.BeforeView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
-                       Source="{StaticResource before}"
+                       Source="{StaticResource Before}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
-            </beforeAndAfter:BeforeAfter.BeforeView>
-            <beforeAndAfter:BeforeAfter.AfterView>
+            </beforeAndAfterLib:BeforeAfter.BeforeView>
+            <beforeAndAfterLib:BeforeAfter.AfterView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
-                       Source="{StaticResource after}"
+                       Source="{StaticResource After}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
-            </beforeAndAfter:BeforeAfter.AfterView>
-        </beforeAndAfter:BeforeAfter>
+            </beforeAndAfterLib:BeforeAfter.AfterView>
+        </beforeAndAfterLib:BeforeAfter>
     </Grid>
 </ContentPage>

@@ -5,3 +5,5 @@
 /Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter/obj/*
 /Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter/bin/*
 /Sample/BeforeAndAfter/.vs/*
+/lib/BeforeAndAfterLib/obj/*
+/lib/BeforeAndAfterLib/bin/*

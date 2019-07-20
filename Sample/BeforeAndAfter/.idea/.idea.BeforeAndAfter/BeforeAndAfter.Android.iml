@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RIDER_MODULE_ANDROID" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android Facet - BeforeAndAfter.Android">
+      <configuration>
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/Properties/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/Resources" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/Assets" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../BeforeAndAfter/BeforeAndAfter.Android" />
+    <orderEntry type="jdk" jdkName="Android API 28 Platform (2)" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
