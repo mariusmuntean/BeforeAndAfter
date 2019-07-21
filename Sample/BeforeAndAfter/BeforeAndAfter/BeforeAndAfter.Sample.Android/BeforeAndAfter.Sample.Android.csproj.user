@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SelectedDevice>Samsung SM-G955F</SelectedDevice>
     <DefaultDevice>pixel_pie</DefaultDevice>
-    <AndroidDesignerPreferredTheme>Theme.DeviceDefault</AndroidDesignerPreferredTheme>
+    <AndroidDesignerPreferredTheme>Theme.DeviceDefault.Light.NoActionBar.Fullscreen</AndroidDesignerPreferredTheme>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
   </PropertyGroup>
 </Project>

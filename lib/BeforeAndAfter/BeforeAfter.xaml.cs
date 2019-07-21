@@ -11,6 +11,8 @@ namespace BeforeAndAfter
     {
         private const string Offset = "Offset";
         private const string NegativeOffset = "NegativeOffset";
+        private const string ThumbControlHalfWidth = "ThumbControlHalfWidth";
+        private const string ThumbControlOffset = "ThumbControlOffset";
 
         public BeforeAfter()
         {
@@ -25,33 +27,19 @@ namespace BeforeAndAfter
             {
                 _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX;
             }
+
+            if (ThumbControl == null)
+            {
+                ThumbControl = new DefaultThumbControl();
+            }
         }
 
         public static readonly BindableProperty BeforeViewProperty = BindableProperty.Create(
             nameof(BeforeView),
             typeof(View),
             typeof(BeforeAfter),
-            new BoxView {BackgroundColor = Color.FromHex("#FFFD700")},
-            propertyChanged: OnBeforeViewChanged
+            new BoxView { BackgroundColor = Color.FromHex("#FFFFD700") }
         );
-
-        private static void OnBeforeViewChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            if (bindable is BeforeAfter beforeAfter)
-            {
-                // Remove any previous BeforeView
-                if (oldvalue is View oldView && beforeAfter.LayoutRoot.Children.Contains(oldView))
-                {
-                    beforeAfter.LayoutRoot.Children.Remove(oldView);
-                }
-
-                // Add the new BeforeView
-                if (newvalue is View newView)
-                {
-                    beforeAfter.LayoutRoot.Children.Insert(0, newView);
-                }
-            }
-        }
 
         public View BeforeView
         {
@@ -63,32 +51,37 @@ namespace BeforeAndAfter
             nameof(AfterView),
             typeof(View),
             typeof(BeforeAfter),
-            new BoxView {BackgroundColor = Color.FromHex("#FFFD700")},
-            propertyChanged: OnAfterViewChanged
-        );
-
-        private static void OnAfterViewChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            if (bindable is BeforeAfter beforeAfter)
-            {
-                // Remove any previous AfterView
-                beforeAfter.AfterViewParentLayout.Children.Clear();
-
-                // Add the new AfterView
-                if (newvalue is View newView)
-                {
-                    beforeAfter.AfterViewParentLayout.Children.Add(newView);
-                    //newView.TranslationX = (double) beforeAfter.Resources["NegativeOffset"];
-
-                    newView.SetDynamicResource(TranslationXProperty, NegativeOffset);
-                }
-            }
-        }
+            new BoxView { BackgroundColor = Color.FromHex("#FFFFD700") });
 
         public View AfterView
         {
             get => GetValue(AfterViewProperty) as View;
             set => SetValue(AfterViewProperty, value);
+        }
+
+        public static readonly BindableProperty ThumbControlProperty = BindableProperty.Create(
+            nameof(ThumbControl),
+            typeof(View),
+            typeof(BeforeAfter),
+            propertyChanged: OnThumbControlChanged
+        );
+
+        private static void OnThumbControlChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            if (bindable is BeforeAfter beforeAfter && newvalue is View newThumbControl)
+            {
+                newThumbControl.SizeChanged += (sender, args) =>
+                {
+                    beforeAfter.Resources[ThumbControlHalfWidth] = newThumbControl.Width / 2.0d;
+                    beforeAfter.Resources[ThumbControlOffset] = (double)beforeAfter.Resources[Offset] - (double)beforeAfter.Resources[ThumbControlHalfWidth];
+                };
+            }
+        }
+
+        public View ThumbControl
+        {
+            get => (View)GetValue(ThumbControlProperty);
+            set => SetValue(ThumbControlProperty, value);
         }
 
         private double previousTranslateX = 0.0d;
@@ -127,15 +120,10 @@ namespace BeforeAndAfter
                 return;
             }
 
-
-            var delta = ((double) Resources[Offset]) + offsetDelta;
+            var delta = ((double)Resources[Offset]) + offsetDelta;
             Resources[NegativeOffset] = -delta;
             Resources[Offset] = delta;
-
-
-            //var translationX = AfterViewParentLayout.TranslationX + offsetDelta;
-            //AfterViewParentLayout.TranslateTo(translationX, 0, 1);
-            //AfterView.TranslateTo(-translationX, 0, 1);
+            Resources[ThumbControlOffset] = delta - (double)Resources[ThumbControlHalfWidth];
         }
     }
 }

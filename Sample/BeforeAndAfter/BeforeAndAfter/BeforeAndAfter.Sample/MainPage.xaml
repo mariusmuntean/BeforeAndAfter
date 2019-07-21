@@ -12,33 +12,117 @@
 
     <ContentPage.Resources>
 
-        <OnPlatform x:Key="Before" x:TypeArguments="ImageSource">
-            <On Platform="iOS" Value="xamarin_before.jpg" />
-            <On Platform="Android" Value="xamarin_before" />
+        <OnPlatform x:Key="Before"
+                    x:TypeArguments="ImageSource">
+            <On Platform="iOS"
+                Value="xamarin_before.jpg" />
+            <On Platform="Android"
+                Value="xamarin_before" />
         </OnPlatform>
 
-        <OnPlatform x:Key="After" x:TypeArguments="ImageSource">
-            <On Platform="iOS" Value="xamarin_after.jpg" />
-            <On Platform="Android" Value="xamarin_after" />
+        <OnPlatform x:Key="After"
+                    x:TypeArguments="ImageSource">
+            <On Platform="iOS"
+                Value="xamarin_after.jpg" />
+            <On Platform="Android"
+                Value="xamarin_after" />
         </OnPlatform>
+
+        <x:String x:Key="Arrows">
+            &#xf01a;
+        </x:String>
     </ContentPage.Resources>
 
     <Grid>
-        <beforeAndAfter:BeforeAfter>
-            <beforeAndAfter:BeforeAfter.BeforeView>
-                <Image Aspect="AspectFit"
-                       IsOpaque="true"
-                       Source="{StaticResource Before}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center" />
-            </beforeAndAfter:BeforeAfter.BeforeView>
-            <beforeAndAfter:BeforeAfter.AfterView>
-                <Image Aspect="AspectFit"
-                       IsOpaque="true"
-                       Source="{StaticResource After}"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center" />
-            </beforeAndAfter:BeforeAfter.AfterView>
-        </beforeAndAfter:BeforeAfter>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Label Text="BeforeAndAfter Sample"
+               FontSize="40"
+               TextColor="#BB000000"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               Margin="10" />
+        <Label Grid.Row="1"
+               HorizontalTextAlignment="Center"
+               HorizontalOptions="Center"
+               Margin="10"
+               TextColor="#88000000">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="BeforeAndAfter "
+                          FontAttributes="Bold"
+                          FontSize="Title" />
+                    <Span
+                        Text="shows two overlapped views and allows to quickly compare them by dragging on the thumb control."
+                        FontSize="Title" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <Frame Grid.Row="3"
+               Margin="10"
+               IsClippedToBounds="True"
+               CornerRadius="20"
+               Padding="0">
+
+            <!-- Hello curious sourcecode wanderer,
+                Here be the reward thou seeketh!
+            -->
+
+            <beforeAndAfter:BeforeAfter>
+                <!-- here's the so-called BeforeView. This is the first view -->
+                <beforeAndAfter:BeforeAfter.BeforeView>
+                    <Image Aspect="AspectFit"
+                           IsOpaque="true"
+                           Source="{StaticResource Before}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                </beforeAndAfter:BeforeAfter.BeforeView>
+
+                <!-- here's the so-called AfterView. This is the second view. -->
+                <beforeAndAfter:BeforeAfter.AfterView>
+                    <Image Aspect="AspectFit"
+                           IsOpaque="true"
+                           Source="{StaticResource After}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center" />
+                </beforeAndAfter:BeforeAfter.AfterView>
+
+                <!-- here's the OPTIONAL thumb control. You drag on this one to show/hide the previous two views -->
+                <beforeAndAfter:BeforeAfter.ThumbControl>
+                    <Grid>
+                        <BoxView VerticalOptions="Fill"
+                                 HorizontalOptions="Center"
+                                 WidthRequest="5"
+                                 Color="#88FFFFFF" />
+                        <BoxView WidthRequest="36"
+                                 HeightRequest="36"
+                                 CornerRadius="18"
+                                 Color="#AAD3D3D3"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center" />
+                        <Image HeightRequest="30"
+                               Aspect="AspectFit"
+                               Margin="0"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center">
+                            <Image.Source>
+                                <FontImageSource FontFamily="{DynamicResource MaterialFontFamily}"
+                                                 Glyph="{StaticResource Arrows}"
+                                                 Size="44"
+                                                 Color="#88FFFFFF" />
+                            </Image.Source>
+                        </Image>
+                    </Grid>
+                </beforeAndAfter:BeforeAfter.ThumbControl>
+            </beforeAndAfter:BeforeAfter>
+        </Frame>
     </Grid>
 </ContentPage>
