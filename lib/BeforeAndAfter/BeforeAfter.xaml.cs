@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace BeforeAndAfterLib
+namespace BeforeAndAfter
 {
+    [DesignTimeVisible(true)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BeforeAfter : ContentView
     {

@@ -1,8 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
-namespace BeforeAndAfter
+namespace BeforeAndAfter.Sample
 {
     public partial class App : Application
     {

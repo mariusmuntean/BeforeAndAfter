@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfter.Android", "BeforeAndAfter\BeforeAndAfter.Android\BeforeAndAfter.Android.csproj", "{B4279E49-7FBE-4DBC-82C3-1E827D85DA0C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfter.Sample.Android", "BeforeAndAfter\BeforeAndAfter.Sample.Android\BeforeAndAfter.Sample.Android.csproj", "{B4279E49-7FBE-4DBC-82C3-1E827D85DA0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfter.iOS", "BeforeAndAfter\BeforeAndAfter.iOS\BeforeAndAfter.iOS.csproj", "{19CFF15D-AC4D-42CA-B62B-AF530433D585}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfter.Sample.iOS", "BeforeAndAfter\BeforeAndAfter.Sample.iOS\BeforeAndAfter.Sample.iOS.csproj", "{19CFF15D-AC4D-42CA-B62B-AF530433D585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfter", "BeforeAndAfter\BeforeAndAfter\BeforeAndAfter.csproj", "{73766588-30DA-43D7-AC6D-671EE2877835}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeforeAndAfter.Sample", "BeforeAndAfter\BeforeAndAfter.Sample\BeforeAndAfter.Sample.csproj", "{73766588-30DA-43D7-AC6D-671EE2877835}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeforeAndAfterLib", "..\..\lib\BeforeAndAfterLib\BeforeAndAfterLib.csproj", "{9118A93C-8A51-4D59-8135-7C13EBC6E1CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeforeAndAfter", "..\..\lib\BeforeAndAfter\BeforeAndAfter.csproj", "{9118A93C-8A51-4D59-8135-7C13EBC6E1CA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{56C23411-E010-484D-880C-AA03ACF95236}"
 EndProject
@@ -95,13 +95,13 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4279E49-7FBE-4DBC-82C3-1E827D85DA0C} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
+		{19CFF15D-AC4D-42CA-B62B-AF530433D585} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
+		{73766588-30DA-43D7-AC6D-671EE2877835} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
+		{9118A93C-8A51-4D59-8135-7C13EBC6E1CA} = {56C23411-E010-484D-880C-AA03ACF95236}
+	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {35283948-AD7F-4D0F-93B5-806ED8B3B24E}
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9118A93C-8A51-4D59-8135-7C13EBC6E1CA} = {56C23411-E010-484D-880C-AA03ACF95236}
-		{73766588-30DA-43D7-AC6D-671EE2877835} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
-		{19CFF15D-AC4D-42CA-B62B-AF530433D585} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
-		{B4279E49-7FBE-4DBC-82C3-1E827D85DA0C} = {E5E6FA26-0C0B-4E6C-88F7-0AD5BB8CD084}
 	EndGlobalSection
 EndGlobal

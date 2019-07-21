@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Application.HandleControlUpdatesOnMainThread="true"
-             x:Class="BeforeAndAfter.App">
+             x:Class="BeforeAndAfter.Sample.App">
     <Application.Resources>
 
     </Application.Resources>

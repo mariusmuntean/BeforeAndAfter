@@ -16,12 +16,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\lib\BeforeAndAfter\BeforeAndAfter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="BeforeAfter.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\lib\BeforeAndAfterLib\BeforeAndAfterLib.csproj" />
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
   </ItemGroup>
 </Project>

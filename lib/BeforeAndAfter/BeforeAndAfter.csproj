@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>BeforeAndAfter</PackageId>
+        <Title>BeforeAndAfter</Title>
+        <Authors>Marius Muntean</Authors>
+        <Description>A custom control for Xamarin.Forms that show a before and after view</Description>
+        <PackageTags>xamarin.forms custom-control c#</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/mariusmuntean/BeforeAndAfter</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/mariusmuntean/BeforeAndAfter</RepositoryUrl>
+        <NeutralLanguage />
+        <Product>BeforeAndAfter</Product>
+        <Copyright>Marius Muntean 2019</Copyright>
+        <AssemblyName>BeforeAndAfter</AssemblyName>
+        <RootNamespace>BeforeAndAfter</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="BeforeAfter.xaml.cs">
+        <DependentUpon>%(Filename)</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>

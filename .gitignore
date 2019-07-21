@@ -7,3 +7,11 @@
 /Sample/BeforeAndAfter/.vs/*
 /lib/BeforeAndAfterLib/obj/*
 /lib/BeforeAndAfterLib/bin/*
+/lib/BeforeAndAfter/obj/*
+/lib/BeforeAndAfter/bin/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample.Android/obj/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample.Android/bin/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample/obj/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample/bin/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample.iOS/bin/*
+/Sample/BeforeAndAfter/BeforeAndAfter/BeforeAndAfter.Sample.iOS/obj/*

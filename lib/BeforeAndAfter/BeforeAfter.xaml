@@ -5,7 +5,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="BeforeAndAfterLib.BeforeAfter">
+             x:Class="BeforeAndAfter.BeforeAfter">
     <ContentView.Resources>
         <x:Double x:Key="Offset">100.0</x:Double>
         <x:Double x:Key="NegativeOffset">-100.0</x:Double>

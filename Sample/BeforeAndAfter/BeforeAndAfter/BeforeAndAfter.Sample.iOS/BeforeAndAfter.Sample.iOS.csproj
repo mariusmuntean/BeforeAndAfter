@@ -9,9 +9,9 @@
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>BeforeAndAfter.iOS</RootNamespace>
+    <RootNamespace>BeforeAndAfter.Sample.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>BeforeAndAfter.iOS</AssemblyName>
+    <AssemblyName>BeforeAndAfter.Sample.iOS</AssemblyName>
     <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
   </PropertyGroup>
@@ -62,6 +62,9 @@
     <ConsolePause>false</ConsolePause>
     <CodesignKey>iPhone Developer</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Default' ">
+    <AppExtensionDebugBundleId />
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
@@ -129,9 +132,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\BeforeAndAfter\BeforeAndAfter.csproj">
-      <Project>{538AE4A9-068B-44B2-BEC9-D65A1A49D0CE}</Project>
-      <Name>BeforeAndAfter</Name>
+    <ProjectReference Include="..\BeforeAndAfter.Sample\BeforeAndAfter.Sample.csproj">
+      <Project>{73766588-30DA-43D7-AC6D-671EE2877835}</Project>
+      <Name>BeforeAndAfter.Sample</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

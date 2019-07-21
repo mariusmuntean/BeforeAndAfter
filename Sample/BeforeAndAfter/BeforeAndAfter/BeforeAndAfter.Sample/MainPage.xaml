@@ -4,9 +4,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:beforeAndAfterLib="clr-namespace:BeforeAndAfterLib;assembly=BeforeAndAfterLib"
+             xmlns:beforeAndAfter="clr-namespace:BeforeAndAfter;assembly=BeforeAndAfter"
              mc:Ignorable="d"
-             x:Class="BeforeAndAfter.MainPage">
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             x:Class="BeforeAndAfter.Sample.MainPage">
 
     <ContentPage.Resources>
 
@@ -19,25 +21,24 @@
             <On Platform="iOS" Value="xamarin_after.jpg" />
             <On Platform="Android" Value="xamarin_after" />
         </OnPlatform>
-
     </ContentPage.Resources>
 
     <Grid>
-        <beforeAndAfterLib:BeforeAfter>
-            <beforeAndAfterLib:BeforeAfter.BeforeView>
+        <beforeAndAfter:BeforeAfter>
+            <beforeAndAfter:BeforeAfter.BeforeView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
                        Source="{StaticResource Before}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
-            </beforeAndAfterLib:BeforeAfter.BeforeView>
-            <beforeAndAfterLib:BeforeAfter.AfterView>
+            </beforeAndAfter:BeforeAfter.BeforeView>
+            <beforeAndAfter:BeforeAfter.AfterView>
                 <Image Aspect="AspectFit"
                        IsOpaque="true"
                        Source="{StaticResource After}"
                        VerticalOptions="Center"
                        HorizontalOptions="Center" />
-            </beforeAndAfterLib:BeforeAfter.AfterView>
-        </beforeAndAfterLib:BeforeAfter>
+            </beforeAndAfter:BeforeAfter.AfterView>
+        </beforeAndAfter:BeforeAfter>
     </Grid>
 </ContentPage>
