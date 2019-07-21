@@ -16,6 +16,7 @@
         <Copyright>Marius Muntean 2019</Copyright>
         <AssemblyName>BeforeAndAfter</AssemblyName>
         <RootNamespace>BeforeAndAfter</RootNamespace>
+        <ApplicationIcon>beforeandaftericon.ico</ApplicationIcon>
     </PropertyGroup>
 
     <ItemGroup>

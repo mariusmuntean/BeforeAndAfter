@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -143,5 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\xamarin_before.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\After.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Before.png" />
   </ItemGroup>
 </Project>
