@@ -17,6 +17,7 @@
         <AssemblyName>BeforeAndAfter</AssemblyName>
         <RootNamespace>BeforeAndAfter</RootNamespace>
         <ApplicationIcon>beforeandaftericon.ico</ApplicationIcon>
+        <PackageIconUrl>https://raw.githubusercontent.com/mariusmuntean/BeforeAndAfter/master/media/BeforeAndAfterIcon.png</PackageIconUrl>
     </PropertyGroup>
 
     <ItemGroup>
