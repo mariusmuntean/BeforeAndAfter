@@ -6,7 +6,7 @@
         <PackageId>BeforeAndAfter</PackageId>
         <Title>BeforeAndAfter</Title>
         <Authors>Marius Muntean</Authors>
-        <Description>A custom control for Xamarin.Forms that show a before and after view</Description>
+        <Description>A custom control for Xamarin.Forms that shows a before and after view.</Description>
         <PackageTags>xamarin.forms custom-control c#</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/mariusmuntean/BeforeAndAfter</PackageProjectUrl>
