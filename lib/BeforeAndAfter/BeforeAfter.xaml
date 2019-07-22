@@ -11,8 +11,11 @@
     <ContentView.Resources>
         <x:Double x:Key="Offset">100.0</x:Double>
         <x:Double x:Key="NegativeOffset">-100.0</x:Double>
-        <x:Double x:Key="ThumbControlOffset">75.0</x:Double>
-        <x:Double x:Key="ThumbControlHalfWidth">50.0</x:Double>
+        <Thickness x:Key="ThumbControlMarginOffset"
+                   Left="-25"
+                   Top="0"
+                   Right="0"
+                   Bottom="0"></Thickness>
     </ContentView.Resources>
 
     <Grid x:Name="LayoutRoot">
@@ -31,13 +34,13 @@
 
         <!-- thumb control -->
         <Grid HorizontalOptions="Start"
-              TranslationX="{DynamicResource ThumbControlOffset}">
+              Margin="{StaticResource ThumbControlMarginOffset}"
+              TranslationX="{DynamicResource Offset}">
             <Grid.GestureRecognizers>
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
             </Grid.GestureRecognizers>
 
             <ContentPresenter Content="{Binding Source={x:Reference ME}, Path=ThumbControl}" />
-
         </Grid>
     </Grid>
 </ContentView>

@@ -16,6 +16,8 @@
                     x:TypeArguments="ImageSource">
             <On Platform="iOS"
                 Value="xamarin_before.jpg" />
+            <On Platform="UWP"
+                Value="xamarin_before.jpg" />
             <On Platform="Android"
                 Value="xamarin_before" />
         </OnPlatform>
@@ -23,6 +25,8 @@
         <OnPlatform x:Key="After"
                     x:TypeArguments="ImageSource">
             <On Platform="iOS"
+                Value="xamarin_after.jpg" />
+            <On Platform="UWP"
                 Value="xamarin_after.jpg" />
             <On Platform="Android"
                 Value="xamarin_after" />
@@ -76,7 +80,7 @@
                 Here be the reward thou seeketh!
             -->
 
-            <beforeAndAfter:BeforeAfter>
+            <beforeAndAfter:BeforeAfter HorizontalOptions="Center">
                 <!-- here's the so-called BeforeView. This is the first view -->
                 <beforeAndAfter:BeforeAfter.BeforeView>
                     <Image Aspect="AspectFit"

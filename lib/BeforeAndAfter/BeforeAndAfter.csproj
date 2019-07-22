@@ -20,6 +20,11 @@
         <PackageIconUrl>https://raw.githubusercontent.com/mariusmuntean/BeforeAndAfter/master/media/BeforeAndAfterIcon.png</PackageIconUrl>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <DebugType>full</DebugType>
+      <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
     <ItemGroup>
         <PackageReference Include="Xamarin.Forms" Version="3.3.0.912540" />
     </ItemGroup>

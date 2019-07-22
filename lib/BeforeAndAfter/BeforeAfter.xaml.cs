@@ -11,21 +11,21 @@ namespace BeforeAndAfter
     {
         private const string Offset = "Offset";
         private const string NegativeOffset = "NegativeOffset";
-        private const string ThumbControlHalfWidth = "ThumbControlHalfWidth";
+        private const string ThumbControlMarginOffset = "ThumbControlMarginOffset";
         private const string ThumbControlOffset = "ThumbControlOffset";
 
         public BeforeAfter()
         {
             InitializeComponent();
 
-            // Apparently there's a bug in the PanGestureRecognizer such that on Android the PAnUpdatedEventArgs.TotalX actually contains the X-delta since the last handler invocation
-            if (Device.RuntimePlatform == Device.iOS)
-            {
-                _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX - previousPanX;
-            }
-            else if (Device.RuntimePlatform == Device.Android)
+            // Apparently there's a bug in the PanGestureRecognizer such that on Android the PanUpdatedEventArgs.TotalX actually contains the X-delta since the last handler invocation
+            if (Device.RuntimePlatform == Device.Android)
             {
                 _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX;
+            }
+            else
+            {
+                _getOffset = (panUpdatedEventArgs, previousPanX) => panUpdatedEventArgs.TotalX - previousPanX;
             }
 
             if (ThumbControl == null)
@@ -51,7 +51,7 @@ namespace BeforeAndAfter
             nameof(AfterView),
             typeof(View),
             typeof(BeforeAfter),
-            new BoxView { BackgroundColor = Color.FromHex("#FFFFD700") });
+            new BoxView { BackgroundColor = Color.FromHex("#FFFFD788") });
 
         public View AfterView
         {
@@ -72,8 +72,7 @@ namespace BeforeAndAfter
             {
                 newThumbControl.SizeChanged += (sender, args) =>
                 {
-                    beforeAfter.Resources[ThumbControlHalfWidth] = newThumbControl.Width / 2.0d;
-                    beforeAfter.Resources[ThumbControlOffset] = (double)beforeAfter.Resources[Offset] - (double)beforeAfter.Resources[ThumbControlHalfWidth];
+                    beforeAfter.Resources[ThumbControlMarginOffset] = new Thickness(-newThumbControl.Width / 2.0d, 0, 0, 0);
                 };
             }
         }
@@ -113,6 +112,8 @@ namespace BeforeAndAfter
             }
         }
 
+        private double _showRatio = 0.0d;
+
         private void AddOffsetDelta(double offsetDelta)
         {
             if (Math.Abs(offsetDelta) < 0.01)
@@ -123,7 +124,19 @@ namespace BeforeAndAfter
             var delta = ((double)Resources[Offset]) + offsetDelta;
             Resources[NegativeOffset] = -delta;
             Resources[Offset] = delta;
-            Resources[ThumbControlOffset] = delta - (double)Resources[ThumbControlHalfWidth];
+
+            // Compute how much of the Before is shown as the ratio between the delta and the total width
+            _showRatio = delta / this.Width;
+        }
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            // Handle screen rotation
+            var newDelta = _showRatio * width;
+            Resources[NegativeOffset] = -newDelta;
+            Resources[Offset] = newDelta;
+
+            base.OnSizeAllocated(width, height);
         }
     }
 }
