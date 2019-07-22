@@ -1,9 +1,4 @@
-
-
-https://github.com/xsahil03x/before_after/tree/master/example
-
-
-## FormsRevealer
+## BeforeAndAfter
 
 A custom control that displays a before-and-after view of something. You usually provide two images and overlap them.
 
@@ -25,6 +20,7 @@ Here's a gif of the included sample app:
 
 ![Sample](media/BeforeAndAfterSample.gif)
 
+Inspired by: https://github.com/xsahil03x/before_after/tree/master/example
 
 
 As usual you can do everything you want with my code. Have fun!
