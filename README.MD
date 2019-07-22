@@ -2,7 +2,7 @@
 
 A custom control that displays a before-and-after view of something. You usually provide two images and overlap them.
 
-Get it from NuGet: https://www.nuget.org/packages/BeforeAndAfter/
+Get it from NuGet: [![NuGet](https://img.shields.io/badge/BeforeAndAfter-NuGet-brightgreen.svg?style=popout)](https://www.nuget.org/packages/BeforeAndAfter/)
 
 Here's a quick rundown of the control's features:
 
