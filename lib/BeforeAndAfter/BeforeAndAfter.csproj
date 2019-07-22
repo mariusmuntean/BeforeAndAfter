@@ -18,6 +18,9 @@
         <RootNamespace>BeforeAndAfter</RootNamespace>
         <ApplicationIcon>beforeandaftericon.ico</ApplicationIcon>
         <PackageIconUrl>https://raw.githubusercontent.com/mariusmuntean/BeforeAndAfter/master/media/BeforeAndAfterIcon.png</PackageIconUrl>
+        <Version>1.0.1</Version>
+        <PackageReleaseNotes>1. Performance improvements
+2. Prettified the default thumb control</PackageReleaseNotes>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
