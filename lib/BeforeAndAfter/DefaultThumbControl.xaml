@@ -5,15 +5,39 @@
       xmlns:d="http://xamarin.com/schemas/2014/forms/design"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d"
-      x:Class="BeforeAndAfter.DefaultThumbControl">
+      x:Class="BeforeAndAfter.DefaultThumbControl"
+      d:BackgroundColor="gray">
+
     <BoxView VerticalOptions="Fill"
              HorizontalOptions="Center"
              WidthRequest="5"
-             Color="LightGray" />
-    <BoxView WidthRequest="50"
-             HeightRequest="50"
-             CornerRadius="25"
-             BackgroundColor="Fuchsia"
-             VerticalOptions="Center"
-             HorizontalOptions="Center" />
+             Color="#88FFFFFF" />
+
+    <BoxView WidthRequest="46"
+             HeightRequest="46"
+             CornerRadius="23.0"
+             Color="#AAD3D3D3"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" />
+
+    <BoxView WidthRequest="36"
+             HeightRequest="36"
+             CornerRadius="18.0"
+             Color="#AAD3D3D3"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" />
+
+    <BoxView WidthRequest="26"
+             HeightRequest="26"
+             CornerRadius="13.0"
+             Color="#BBDDDDDD"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" />
+
+    <BoxView WidthRequest="10"
+             HeightRequest="10"
+             CornerRadius="5.0"
+             Color="#CCFFFFFF"
+             HorizontalOptions="Center"
+             VerticalOptions="Center" />
 </Grid>

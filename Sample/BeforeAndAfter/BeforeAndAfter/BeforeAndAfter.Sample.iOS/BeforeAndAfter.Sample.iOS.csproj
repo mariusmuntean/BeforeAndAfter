@@ -134,6 +134,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\lib\BeforeAndAfter\BeforeAndAfter.csproj">
+      <Project>{9118a93c-8a51-4d59-8135-7c13ebc6e1ca}</Project>
+      <Name>BeforeAndAfter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BeforeAndAfter.Sample\BeforeAndAfter.Sample.csproj">
       <Project>{73766588-30DA-43D7-AC6D-671EE2877835}</Project>
       <Name>BeforeAndAfter.Sample</Name>

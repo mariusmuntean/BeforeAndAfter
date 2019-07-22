@@ -101,7 +101,7 @@
 
                 <!-- here's the OPTIONAL thumb control. You drag on this one to show/hide the previous two views -->
                 <beforeAndAfter:BeforeAfter.ThumbControl>
-                    <Grid>
+                    <Grid Margin="0" Padding="0">
                         <BoxView VerticalOptions="Fill"
                                  HorizontalOptions="Center"
                                  WidthRequest="5"
@@ -112,7 +112,7 @@
                                  Color="#AAD3D3D3"
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center" />
-                        <Image HeightRequest="30"
+                        <Image HeightRequest="30" WidthRequest="30"
                                Aspect="AspectFit"
                                Margin="0"
                                HorizontalOptions="Center"
