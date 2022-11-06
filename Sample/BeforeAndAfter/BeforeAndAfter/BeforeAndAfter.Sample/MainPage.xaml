@@ -102,8 +102,7 @@
                 <!-- here's the OPTIONAL thumb control. You drag on this one to show/hide the previous two views -->
                 <beforeAndAfter:BeforeAfter.ThumbControl>
                     <Grid Margin="0" Padding="0">
-                        <BoxView VerticalOptions="Fill"
-                                 HorizontalOptions="Center"
+                        <BoxView HorizontalOptions="Center"
                                  WidthRequest="5"
                                  Color="#88FFFFFF" />
                         <BoxView WidthRequest="36"
