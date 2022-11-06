@@ -21,14 +21,14 @@
     <Grid x:Name="LayoutRoot">
 
         <!-- BeforeView -->
-        <ContentPresenter Content="{Binding Source={x:Reference ME}, Path=BeforeView}" />
+        <ContentView Content="{Binding Source={x:Reference ME}, Path=BeforeView}" />
 
         <Grid x:Name="AfterViewParentLayout"
               IsClippedToBounds="True"
               TranslationX="{DynamicResource Offset}">
 
             <!-- AfterView -->
-            <ContentPresenter Content="{Binding Source={x:Reference ME}, Path=AfterView}"
+            <ContentView Content="{Binding Source={x:Reference ME}, Path=AfterView}"
                               TranslationX="{DynamicResource NegativeOffset}" />
         </Grid>
 
@@ -40,7 +40,7 @@
                 <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" />
             </Grid.GestureRecognizers>
 
-            <ContentPresenter Content="{Binding Source={x:Reference ME}, Path=ThumbControl}" />
+            <ContentView Content="{Binding Source={x:Reference ME}, Path=ThumbControl}" />
         </Grid>
     </Grid>
 </ContentView>
